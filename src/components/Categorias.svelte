@@ -30,7 +30,8 @@
 	.btn-category {
 		width: 80%;
 		height: 50%;
-		background-image: none;
+		/*background-image: none;*/
+		background-color: #ff00ff;
 	}
 
 	.btn {

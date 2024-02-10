@@ -1318,3 +1318,32 @@
 
 ]
 }
+
+
+  {
+      "title": "Trolls World Tour",
+      "year": 2020,
+      "cast": [
+        "Anna Kendrick",
+        "Justin Timberlake",
+        "Rachel Bloom",
+        "James Corden",
+        "Ron Funches",
+        "Kelly Clarkson",
+        "Anderson Paak",
+        "Sam Rockwell",
+        "George Clinton",
+        "Mary J. Blige"
+      ],
+      "genres": [
+        "Animated",
+        "Comedy",
+        "Musical"
+      ],
+      "href": "Trolls_World_Tour",
+      "extract": "Trolls World Tour is a 2020 American computer-animated jukebox musical comedy film produced by DreamWorks Animation and distributed by Universal Pictures, based on the Good Luck Trolls dolls created by Thomas Dam. The sequel to Trolls (2016) and the second installment in the franchise, the film was directed by Walt Dohrn and co-directed by David P. Smith, from a screenplay by Maya Forbes, Wallace Wolodarsky, Elizabeth Tippet, and the writing team of Jonathan Aibel and Glenn Berger, and a story by Aibel and Berger. The film features an ensemble cast that includes the voices of Anna Kendrick, Justin Timberlake, Rachel Bloom, James Corden, Ron Funches, Kelly Clarkson, Anderson .Paak, Sam Rockwell, George Clinton, and Mary J. Blige. The film follows Poppy and Branch as they discover several more troll tribes that represent music genres other than their own. Troubles arise when the Queen of the Rock tribe plans to overthrow the foreign music genres to unite the trolls under rock music.",
+      "thumbnail": "https://upload.wikimedia.org/wikipedia/en/e/ed/Trolls_World_Tour_poster.jpg",
+      "thumbnail_width": 258,
+      "thumbnail_height": 386,
+      "id": "59"
+    }

@@ -24,7 +24,7 @@ export const load = async (serverLoadEvent) => {
 	console.log('response', response.status);
 	//esperamos a que llegue esa respuesta y la transformamos a json
 	const peliculas = await response.json();
-	const title = `La pelicula numero ${id} es ${peliculas.title}`;
+	const title = 'Pelicula por id';
 	return {
 		title,
 		peliculas

@@ -36,6 +36,7 @@
 <style>
 	a {
 		color: #e9c46a;
+		/*ff00ff*/
 		text-decoration: none;
 	}
 	.layout-header {

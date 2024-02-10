@@ -17,10 +17,10 @@
 		movies.sort(() => Math.random() - 0.5); //simpre que muestro me las desordena
 	}
 
-	function ocultando(e) {
+	/*function ocultando(e) {
 		mostrar = false;
 		orden = '';
-	}
+	}*/
 
 	function onChange(event) {
 		orden = event.currentTarget.value;
@@ -109,7 +109,7 @@
 
 	<h1 style="color: var(--blue);">Peliculas (número total de peliculas {count})</h1>
 	<Cartas cartas={movies} />
-	<button on:click={Mostrando} class="btn btn-category">Todas las peliculas</button>
+	<!--button on:click={Mostrando} class="btn btn-category">Todas las peliculas</button>-->
 </footer>
 
 <style>

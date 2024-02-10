@@ -3,7 +3,7 @@
 </script>
 
 <div class="Logo">
-	<img src="src/img/logo.gif" alt="logo" />
+	<img src="/logo.gif" alt="logo" />
 </div>
 
 <style>
