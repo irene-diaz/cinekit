@@ -25,6 +25,7 @@
   },
   "type": "module",
   "dependencies": {
+    "firebase": "^10.8.0",
     "json-server": "^1.0.0-alpha.23"
   },
   "description": "Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).",

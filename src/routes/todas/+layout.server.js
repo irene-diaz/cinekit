@@ -29,4 +29,4 @@ export const load = async (serverLoadEvent) => {
 };
 
 //es para renderizar la ruta previamente
-export const prerender = true;
+//export const prerender = true;

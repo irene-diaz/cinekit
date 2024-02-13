@@ -1,6 +1,5 @@
 <!--<Buscador />-->
 <script>
-	//import Buscador from '../components/Buscador.svelte';
 	import Header from '../components/Header.svelte';
 	import Header2 from '../components/Header2.svelte';
 	//import * as samples from '../components/samples';
@@ -62,7 +61,6 @@
 
 <!--Mostramos el titulo y imagen de todas las peliculas-->
 <link rel="stylesheet" href="../css/cards.css" />
-
 <div class="prin" id={$darkmode ? 'darkmode' : ''}>
 	<div class="search">
 		<!--El evento onInput nos permite, que mientras escribamos se active el evento, mientras que el evento onChange solo se activa cuando terminamos de escribir-->

@@ -16,10 +16,12 @@
 	<!--los datos no se recargan, solo el codigo-->
 	<!--<a href="/products" data-sveltekit-preload-code="hover">Products</a>-->
 	<!--<a href="/products" data-sveltekit-reload>Products</a>-->
+	
 	<a href="/administrador">Administrador</a>
 	<a href="/todas">Todas</a>
 	<a href="/favoritos">Favoritas</a>
-
+	<a href="/#" class="logout">Logout</a>
+	<a href="/auth/login" class="login">Login</a>
 	<!--Creacion de un boton que navega a productos, con onclick navegamos a la ruta products, cuando el raton este encima o posado se precarga el fetch de productos-->
 	<!--<button
 		on:mouseover={async () => {
@@ -45,5 +47,16 @@
 		font-size: 30px;
 		text-align: center;
 		padding: 10px;
+	}
+	.login {
+		color: green;
+		float: right;
+		font-size: 25px;
+	}
+	.logout {
+		color: red;
+		margin-left: 15px;
+		float: right;
+		font-size: 25px;
 	}
 </style>
