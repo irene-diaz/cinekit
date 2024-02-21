@@ -53,7 +53,7 @@ export function load({ cookies }) {
 export const actions = {
     //Si solo tenemos una accion simplemente llamamos a esa accion default
 	//CREAR USUARIO,esta accion nos permite acceder a las cookies(sitio donde tenemos guardado los id de usuarios)
-	 async crear ({ cookies, request, fetch }){
+	 async crear ({ cookies, request }){
 		//guardamos tambien las respuestas del formulario(), no indicamos el metodo ya que por defecto, los parametros recibidos en un formulario se recogen con POST
 		const data = await request.formData();
 

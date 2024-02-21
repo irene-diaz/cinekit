@@ -35,7 +35,7 @@
 
 <style>
 	.estrenos {
-		padding: 2rem;
+		padding: 1rem;
 		padding-top: 0;
 		width: 100%;
 	}

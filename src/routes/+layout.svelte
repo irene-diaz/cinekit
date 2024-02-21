@@ -1,5 +1,7 @@
 <!--<Buscador />-->
 <script>
+	//importamos para saber si esta en proceso de navegacion o no
+	import { navigating } from '$app/stores';
 	import Header from '../components/Header.svelte';
 	import Header2 from '../components/Header2.svelte';
 	//import * as samples from '../components/samples';
@@ -12,6 +14,7 @@
 	export let data;
 	const title = data.title;
 	let peliculas = data.peliculas;
+	let users = data.users;
 
 	//creamos una variable en la que iran las peliculas que coincidan con la busqueda
 	let copyMovies = [];
@@ -56,59 +59,65 @@
 }*/
 </script>
 
-<Header2 />
-<Header />
+{#if $navigating}
+	<div>Loading...</div>
+{:else}
+	<Header2 />
+	<Header />
+	{#each users as user}
+		<h3>Welcome {user.username}</h3>
+	{/each}
 
-<!--Mostramos el titulo y imagen de todas las peliculas-->
-<link rel="stylesheet" href="../css/cards.css" />
-<div class="prin" id={$darkmode ? 'darkmode' : ''}>
-	<div class="search">
-		<!--El evento onInput nos permite, que mientras escribamos se active el evento, mientras que el evento onChange solo se activa cuando terminamos de escribir-->
-		Titulos:<input type="text" placeholder="Buscar..." on:input={handleSearchTitle} />
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			height="20"
-			viewBox="0 -960 960 960"
-			width="24"
-			class={$darkmode ? 'svg-darkmode' : ''}
-			><path
-				d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
-			/></svg
-		>
+	<!--Mostramos el titulo y imagen de todas las peliculas-->
+	<link rel="stylesheet" href="../css/cards.css" />
+	<div class="prin" id={$darkmode ? 'darkmode' : ''}>
+		<div class="search">
+			<!--El evento onInput nos permite, que mientras escribamos se active el evento, mientras que el evento onChange solo se activa cuando terminamos de escribir-->
+			Titulos:<input type="text" placeholder="Buscar..." on:input={handleSearchTitle} />
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				height="20"
+				viewBox="0 -960 960 960"
+				width="24"
+				class={$darkmode ? 'svg-darkmode' : ''}
+				><path
+					d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"
+				/></svg
+			>
 
-		<!--
+			<!--
 Reparto:<input type="text" placeholder="Buscar..." on:input={handleSearchCast}>
 <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="24" class={$darkmode?'svg-darkmode':''}><path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z"/></svg>
 
 -->
-		<div>
-			{#if copyMovies.length > 0}
-				<h3>{countMovies} resultados por titulo</h3>
-			{/if}
-		</div>
+			<div>
+				{#if copyMovies.length > 0}
+					<h3>{countMovies} resultados por titulo</h3>
+				{/if}
+			</div>
 
-		{#if $vermas != ''}
-			<Vermas />
-		{:else}
-			<div class="movie-cards">
-				{#each copyMovies as movie}
-					<!--<h1>{title}</h1>-->
-					<div class="card">
-						<img src={movie.thumbnail} alt="" />
-						<div class="titlecage">
-							<h1 class="title">{movie.title}</h1>
-						</div>
-						<div class="content">
-							<button class="vermas" on:click={() => vermas.update((value) => movie.title)}
-								>VER MÁS</button
-							>
-							<div class="contentelements">
-								<h1 class="name">{movie.title}</h1>
-								<h3 class="info">
-									{movie.stars} <i class="fa-solid fa-star"></i>
-									| {movie.year} | {movie.duration} min
-								</h3>
-								<!--
+			{#if $vermas != ''}
+				<Vermas />
+			{:else}
+				<div class="movie-cards">
+					{#each copyMovies as movie}
+						<!--<h1>{title}</h1>-->
+						<div class="card">
+							<img src={movie.thumbnail} alt="" />
+							<div class="titlecage">
+								<h1 class="title">{movie.title}</h1>
+							</div>
+							<div class="content">
+								<button class="vermas" on:click={() => vermas.update((value) => movie.title)}
+									>VER MÁS</button
+								>
+								<div class="contentelements">
+									<h1 class="name">{movie.title}</h1>
+									<h3 class="info">
+										{movie.stars} <i class="fa-solid fa-star"></i>
+										| {movie.year} | {movie.duration} min
+									</h3>
+									<!--
 						<div class="allgenders">
 							{#each pelicula.genres as genre}
 								<div class="gender" style="background-color: {saberColor2(genre)};">
@@ -117,14 +126,14 @@ Reparto:<input type="text" placeholder="Buscar..." on:input={handleSearchCast}>
 							{/each}
 						</div>
 						-->
+								</div>
 							</div>
 						</div>
-					</div>
-				{/each}
-			</div>
-		{/if}
+					{/each}
+				</div>
+			{/if}
 
-		<!--BUSCAR REPARTO
+			<!--BUSCAR REPARTO
  <div>
    {#if copyCast.length> 0}
     <h3>{countCast} resultados por reparto</h3>
@@ -151,11 +160,12 @@ Reparto:<input type="text" placeholder="Buscar..." on:input={handleSearchCast}>
         {/each}
     </div>
 -->
+		</div>
+		<!--END: <div class="search">-->
 	</div>
-	<!--END: <div class="search">-->
-</div>
 
-<slot />
+	<slot />
+{/if}
 
 <style>
 	:global(.prin#darkmode) {

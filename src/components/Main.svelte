@@ -40,7 +40,7 @@
 	@media (max-width: 900px) {
 		.main {
 			grid-template-columns: 1fr;
-			gap: 1rem;
+			gap: 0.5rem;
 			padding-top: 0;
 		}
 		.aside {
