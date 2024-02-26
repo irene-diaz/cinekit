@@ -2,6 +2,8 @@
 <script>
 	//importamos para saber si esta en proceso de navegacion o no
 	import { navigating } from '$app/stores';
+	import { page } from '$app/stores';
+
 	import Header from '../components/Header.svelte';
 	import Header2 from '../components/Header2.svelte';
 	//import * as samples from '../components/samples';
@@ -64,13 +66,16 @@
 {:else}
 	<Header2 />
 	<Header />
-
-	
-		<h3>Welcome {user}</h3>
-	
+	{#if $page.data.user}
+		<h3 style="color:green">Welcome {user}</h3>
+	{:else}	
+		<h3 style="color:rgb(246, 102, 126)">No se ha iniciado sesion</h3>
+	{/if}
+		
 		
 	<!--Mostramos el titulo y imagen de todas las peliculas-->
-	<link rel="stylesheet" href="../css/cards.css" />
+	<!--  <link rel="stylesheet" href="../css/cards.css" />  -->
+	
 	<div class="prin" id={$darkmode ? 'darkmode' : ''}>
 		<div class="search">
 			<!--El evento onInput nos permite, que mientras escribamos se active el evento, mientras que el evento onChange solo se activa cuando terminamos de escribir-->
@@ -278,5 +283,173 @@ Reparto:<input type="text" placeholder="Buscar..." on:input={handleSearchCast}>
 	.carta:hover .caja {
 		transform: translateY(-30px);
 		box-shadow: 0 10px 40px rgb(93, 67, 2);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/**
+  ESTILOS NUEVAS CARTAS AZULES****************************************************************************************************
+  */
+
+  .movie-cards {
+		width: 100%;
+		/*min-height: 10vh;*/
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		overflow: hidden;
+		justify-content: space-around;
+	}
+
+	.card {
+		width: 14.38rem;
+		height: 21.9rem;
+		position: relative;
+		color: #fff;
+		border-radius: 0.3rem;
+		cursor: pointer;
+		overflow: hidden;
+		margin: 2rem;
+	}
+
+	.titlecage {
+		background-color: var(--blue);
+		position: absolute;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		min-height: 2rem;
+		padding: 4%;
+	}
+
+	.card:hover .titlecage {
+		opacity: 0;
+	}
+
+	.title {
+		font-size: 1.1rem;
+		font-weight: 700;
+		color: #fff;
+	}
+
+	.card img {
+		width: 100%;
+		height: 100%;
+		transition: all 0.5s;
+	}
+
+	.card:hover img {
+		transform: scale(1.05);
+	}
+
+	.content {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		bottom: 0;
+		background: linear-gradient(rgba(0, 0, 0, 0.2), var(--blue));
+
+		padding-left: 4%;
+		padding-right: 4%;
+		padding-bottom: 4%;
+		opacity: 0;
+		transition: all 0.2s;
+		overflow: hidden;
+	}
+
+	.contentelements {
+		padding: 0;
+		margin: 0;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.card:hover .content {
+		opacity: 1;
+	}
+
+	.name {
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+
+	.info {
+		font-size: 0.75rem;
+		font-weight: 600;
+	}
+
+	.allgenders {
+		width: 100%;
+		min-height: 1.6rem;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		overflow: hidden;
+		flex-wrap: wrap;
+	}
+	.gender {
+		font-size: 0.7rem;
+		color: white;
+		height: 1.5rem;
+		min-width: 4rem;
+		border-radius: 0.3rem;
+		border: none;
+		background-color: #404c4d;
+		cursor: pointer;
+		margin: 0.5rem;
+		text-align: center;
+		padding: 0.3rem;
+	}
+
+	.gender p {
+		font-size: 1rem;
+		font-weight: 600;
+		transform: translateY(-0.2rem);
+	}
+
+	.drama {
+		background-color: palevioletred;
+	}
+
+	.comedia {
+		background-color: orange;
+	}
+
+	.vermas {
+		position: absolute;
+		right: 4%;
+		top: 4%;
+		font-size: 0.9rem;
+		color: white;
+		font-weight: 900;
+		height: 1.9rem;
+		width: 5rem;
+		border-radius: 0.3rem;
+		border: none;
+		background-color: var(--blue);
+		cursor: pointer;
 	}
 </style>

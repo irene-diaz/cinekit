@@ -1,6 +1,22 @@
 <script>
 	import { page } from '$app/stores';
 	import { goto, preloadData } from '$app/navigation';
+	const handleLogout = () => {
+		document.cookie = 'userActual=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+        goto('/');
+		window.location.reload();
+    };
+	/*
+	export const handleLogout = async ({ cookies }) => {
+        await cookies.delete('userActual');
+        return {
+            status: 303,
+            headers: {
+                location: '/' // Redirige a la página de inicio
+            }
+        };
+    };
+	*/
 </script>
 
 <!--Si el load de una ruta ha devuelto el atributo title, ponemos como titulo ese atributo, sino ponemos el texto por defecto. Esto es el head(titulo de la url)-->
@@ -20,8 +36,13 @@
 	<a href="/administrador">Administrador</a>
 	<a href="/todas">Todas</a>
 	<a href="/favoritos">Favoritas</a>
-	<a href="/#" class="logout">Logout</a>
-	<a href="/auth/login" class="login">Login</a>
+
+	{#if $page.data.user}
+		<button on:click={handleLogout} class="logout">Logout</button>
+	{:else}
+		<a href="/auth/login" class="login">Login</a>
+	{/if}
+	
 	<!--Creacion de un boton que navega a productos, con onclick navegamos a la ruta products, cuando el raton este encima o posado se precarga el fetch de productos-->
 	<!--<button
 		on:mouseover={async () => {
