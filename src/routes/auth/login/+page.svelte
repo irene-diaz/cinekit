@@ -3,21 +3,29 @@
 	let password = '';
 
 	const handleSubmit = async () => {
-		const response = await fetch('auth/login', {
-			method: 'POST',
-			body: JSON.stringify({
-				username,
-				password
-			})
-		});
-		const data = await response.json();
-		console.log(data);
-		if (response.ok) {
-			goto('/');
-		} else {
-			alert(data.message);
-		}
-	};
+        const response = await fetch('http://localhost:4000/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                username,
+                password
+            })
+        });
+        const data = await response.json();
+        console.log(data);
+        if (response.ok) {
+            // Seteamos la cookie si la solicitud fue exitosa
+            document.cookie = `userActual=${username}; path=/`;
+            // Redireccionamos a otra página después de un breve retraso para asegurarnos de que la cookie se haya establecido correctamente
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 100);
+        } else {
+            alert(data.message);
+        }
+    };
 </script>
 
 <h1>Login</h1>

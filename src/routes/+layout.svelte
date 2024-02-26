@@ -14,7 +14,7 @@
 	export let data;
 	const title = data.title;
 	let peliculas = data.peliculas;
-	let users = data.users;
+	let user = data.user;
 
 	//creamos una variable en la que iran las peliculas que coincidan con la busqueda
 	let copyMovies = [];
@@ -64,10 +64,11 @@
 {:else}
 	<Header2 />
 	<Header />
-	{#each users as user}
-		<h3>Welcome {user.username}</h3>
-	{/each}
 
+	
+		<h3>Welcome {user}</h3>
+	
+		
 	<!--Mostramos el titulo y imagen de todas las peliculas-->
 	<link rel="stylesheet" href="../css/cards.css" />
 	<div class="prin" id={$darkmode ? 'darkmode' : ''}>

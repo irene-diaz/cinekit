@@ -10,10 +10,13 @@ import { redirect } from '@sveltejs/kit';
 export const load = async (serverLoadEvent) => {
 	console.log('Load function called in page.server.js');
 	//sacamos el objeto fetch del evento junto con los parametros recibidos
-	const { fetch } = serverLoadEvent;
+	
+
+	const { fetch, cookies } = serverLoadEvent;
 	//Creamos una variable la cual espera hasta que la ruta del producto elegido haya llegado al servidor, y la guarda
+
+	const user = cookies.get('userActual');
 	const response = await fetch('http://localhost:4000/peliculas/');
-	const response2= await fetch('http://localhost:4000/users/');
 	//si codigo de estado es 404 lanzamos este error personalizado con su mensaje y su pista(hint) o tambien podemos redirigir a la pagina de products
 	if (response.status === 404) {
 		//throw error(404, { message: 'Product not found', hint: 'Try a different product' });
@@ -22,12 +25,11 @@ export const load = async (serverLoadEvent) => {
 	console.log('response', response.status);
 	//esperamos a que llegue esa respuesta y la transformamos a json
 	const peliculas = await response.json();
-	const users=await response2.json();
 	const title = 'Pelicula por id';
 	return {
 		title,
 		peliculas,
-		users
+		user
 	};
 };
 
