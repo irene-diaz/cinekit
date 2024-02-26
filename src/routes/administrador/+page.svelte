@@ -7,6 +7,8 @@
 	export let form;
 	<script>*/
 	//recogemos los datos de +page.server.js
+	import { darkmode } from '../../stores/store';
+	export let form;
 	export let data;
 	const title = data.title;
 	const peliculas = data.peliculas;
@@ -20,12 +22,19 @@
 	}
 </script>
 
-<div class="centered">
+<div id="centered" class={$darkmode ? 'darkmode' : ''}>
 	<!--Lo hacemos para capturar si el formulario es correcto, y sino lo es mostrar el error definido por el servidor-->
 	<!-- {#if form?.error}
 		<p class="error">{form.error}</p>
 	{/if} -->
 	<h1>Area de Administrador</h1>
+	{#if form?.error}
+		<h1 class="error">{form.message}</h1>
+	{/if}
+	{#if form?.succes}
+		<h1 class="succes">{form.message}</h1>
+	{/if}
+
 	<button on:click={handleCreate}><h3>Haz click aqui para añadir una pelicula</h3></button>
 	<p></p>
 	{#if showForm === true}
@@ -105,10 +114,17 @@
 </div>
 
 <style>
-	.centered {
-		max-width: 40%;
-		margin: 0 auto;
-		max-height: 50%;
+	:global(div.darkmode) {
+		background-color: black;
+		color: white;
+	}
+	#centered {
+		/*max-width: 40%;*/
+		/*margin: 0 auto;
+		max-height: 50%;*/
+		display: flex;
+		align-items: center;
+		flex-direction: column;
 	}
 
 	label {
@@ -140,5 +156,14 @@
 
 	.saving {
 		opacity: 0.5;
+	}
+
+	/*estilos de error y exito*/
+	.error {
+		color: red;
+	}
+
+	.succes {
+		color: green;
 	}
 </style>

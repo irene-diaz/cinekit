@@ -101,11 +101,18 @@ export const actions = {
             });
 			if(insert.ok){
 			cookies.set('peliculaCreada', newIdCad, {path: '/administrador'});
-			throw redirect(302,'/administrador');
+			//mensajeError="La pelicula ha sido añadida correctamente"
+			//throw redirect(302,'/administrador');
+			return {"succes":true,
+				"message":'La pelicula ha sido creada'};
+			}
+			else{
+				return {"error":true,
+				"message":'La pelicula no ha sido creada'};
+			}
 		}
 		else{
 			mensajeError="Ha habido un problema al crear la pelicula";
-		}
 		}
 
         //si todo sale bien crea el usuario
@@ -136,13 +143,18 @@ export const actions = {
         });
 
         if (eliminar.ok) {
-            console.log('Dato eliminado');
+			console.log('Dato eliminado');
+			return {"succes":true,
+				"message":'La pelicula ha sido eliminada'};
+			}
 			
-        } else {
-            console.log("Error al eliminar");
-            // Manejar el error aquí, por ejemplo, mostrar un mensaje de error al usuario
-            return null; // Otra opción podría ser lanzar un error
-        }
+        else{
+				return {"error":true,
+				"message":'La pelicula no ha sido eliminada'};
+				// Manejar el error aquí, por ejemplo, mostrar un mensaje de error al usuario
+            //return null; // Otra opción podría ser lanzar un error
+			}
+            
 		
     } catch (error) {
         console.error("Error al procesar la solicitud DELETE:", error);
@@ -179,10 +191,14 @@ export const actions = {
             });
 			if(update.ok){
 			cookies.set('peliculaActualizada', id, {path: '/administrador'});
-			throw redirect(302,'/administrador');
+			//throw redirect(302,'/administrador');
+			return {"succes":true,
+				"message":'La pelicula ha sido actualizada'};
 			}
 			else{
-				console.log("Error al actualizar")
+				console.log("Error al actualizar");
+				return {"error":true,
+				"message":'La pelicula no ha sido actualizada'};
 			}
 
   } catch (error) {
