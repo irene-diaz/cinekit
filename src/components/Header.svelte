@@ -32,10 +32,15 @@
 	<!--los datos no se recargan, solo el codigo-->
 	<!--<a href="/products" data-sveltekit-preload-code="hover">Products</a>-->
 	<!--<a href="/products" data-sveltekit-reload>Products</a>-->
-	
-	<a href="/administrador">Administrador</a>
+	{#if $page.data.user=="administrador@gmail.com"}
+		<a href="/administrador">Administrador</a>
+	{/if}
+
 	<a href="/todas">Todas</a>
-	<a href="/favoritos">Favoritas</a>
+	
+	{#if $page.data.user!=="administrador@gmail.com"}
+		<a href="/favoritos">Favoritas</a>
+	{/if}
 
 	{#if $page.data.user}
 		<button on:click={handleLogout} class="logout">Logout</button>
@@ -73,6 +78,7 @@
 		color: green;
 		float: right;
 		font-size: 25px;
+		background-color: white;
 	}
 	.logout {
 		color: red;

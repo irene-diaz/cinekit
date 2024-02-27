@@ -295,7 +295,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "1",
-      "stars": 7.8
+      "stars": 7.8,
+      "duration": 124
     },
     {
       "title": "Underwater",
@@ -319,7 +320,8 @@
       "thumbnail_width": 250,
       "thumbnail_height": 398,
       "id": "2",
-      "stars": 6.5
+      "stars": 6.5,
+      "duration": 100
     },
     {
       "title": "Like a Boss",
@@ -340,7 +342,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "3",
-      "stars": 6.2
+      "stars": 6.2,
+      "duration": 85
     },
     {
       "title": "Three Christs",
@@ -360,7 +363,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "4",
-      "stars": 6.7
+      "stars": 6.7,
+      "duration": 130
     },
     {
       "title": "Inherit the Viper",
@@ -382,7 +386,8 @@
       "thumbnail_width": 236,
       "thumbnail_height": 350,
       "id": "5",
-      "stars": 6.9
+      "stars": 6.9,
+      "duration": 105
     },
     {
       "title": "The Sonata",
@@ -403,7 +408,8 @@
       "thumbnail_width": 246,
       "thumbnail_height": 350,
       "id": "6",
-      "stars": 6.4
+      "stars": 6.4,
+      "duration": 96
     },
     {
       "title": "The Murder of Nicole Brown Simpson",
@@ -423,7 +429,8 @@
       "thumbnail_width": 263,
       "thumbnail_height": 380,
       "id": "7",
-      "stars": 5.8
+      "stars": 5.8,
+      "duration": 120
     },
     {
       "title": "Bad Boys for Life",
@@ -449,7 +456,8 @@
       "thumbnail_width": 219,
       "thumbnail_height": 325,
       "id": "8",
-      "stars": 7.3
+      "stars": 7.3,
+      "duration": 160
     },
     {
       "title": "Dolittle",
@@ -479,7 +487,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "9",
-      "stars": 6.8
+      "stars": 6.8,
+      "duration": 95
     },
     {
       "title": "A Fall from Grace",
@@ -501,7 +510,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "10",
-      "stars": 7.1
+      "stars": 7.1,
+      "duration": 100
     },
     {
       "title": "The Gentlemen",
@@ -526,7 +536,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "11",
-      "stars": 8.2
+      "stars": 8.2,
+      "duration": 150
     },
     {
       "title": "The Turning",
@@ -547,7 +558,8 @@
       "thumbnail_width": 251,
       "thumbnail_height": 397,
       "id": "12",
-      "stars": 6.7
+      "stars": 6.7,
+      "duration": 70
     },
     {
       "title": "The Last Full Measure",
@@ -576,7 +588,8 @@
       "thumbnail_width": 256,
       "thumbnail_height": 378,
       "id": "13",
-      "stars": 7.9
+      "stars": 7.9,
+      "duration": 82
     },
     {
       "title": "John Henry",
@@ -599,7 +612,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 316,
       "id": "14",
-      "stars": 6.4
+      "stars": 6.4,
+      "duration": 134
     },
     {
       "title": "The Rhythm Section",
@@ -619,7 +633,8 @@
       "thumbnail_width": 260,
       "thumbnail_height": 382,
       "id": "15",
-      "stars": 6.8
+      "stars": 6.8,
+      "duration": 171
     },
     {
       "title": "Gretel & Hansel",
@@ -641,7 +656,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "16",
-      "stars": 7.2
+      "stars": 7.2,
+      "duration": 168
     },
     {
       "title": "The Assistant",
@@ -659,7 +675,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "17",
-      "stars": 7.5
+      "stars": 7.5,
+      "duration": 78
     },
     {
       "title": "Birds of Prey",
@@ -683,7 +700,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "18",
-      "stars": 7.8
+      "stars": 7.8,
+      "duration": 127
     },
     {
       "title": "The Lodge",
@@ -704,7 +722,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "19",
-      "stars": 7
+      "stars": 7,
+      "duration": 145
     },
     {
       "title": "Timmy Failure: Mistakes Were Made",
@@ -728,7 +747,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "20",
-      "stars": 6.9
+      "stars": 6.9,
+      "duration": 167
     },
     {
       "title": "Horse Girl",
@@ -750,7 +770,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "21",
-      "stars": 5.9
+      "stars": 5.9,
+      "duration": 133
     },
     {
       "title": "To All the Boys: P.S. I Still Love You",
@@ -773,7 +794,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "22",
-      "stars": 6
+      "stars": 6,
+      "duration": 114
     },
     {
       "title": "Sonic the Hedgehog",
@@ -798,7 +820,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 384,
       "id": "23",
-      "stars": 6.5
+      "stars": 6.5,
+      "duration": 180
     },
     {
       "title": "Fantasy Island",
@@ -823,7 +846,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "24",
-      "stars": 4.9
+      "stars": 4.9,
+      "duration": 111
     },
     {
       "title": "The Photograph",
@@ -845,7 +869,8 @@
       "thumbnail_width": 251,
       "thumbnail_height": 397,
       "id": "25",
-      "stars": 6.9
+      "stars": 6.9,
+      "duration": 164
     },
     {
       "title": "Downhill",
@@ -867,7 +892,8 @@
       "thumbnail_width": 258,
       "thumbnail_height": 382,
       "id": "26",
-      "stars": 4.8
+      "stars": 4.8,
+      "duration": 167
     },
     {
       "title": "Spy Intervention",
@@ -891,7 +917,8 @@
       "thumbnail_width": 236,
       "thumbnail_height": 350,
       "id": "27",
-      "stars": 7.8
+      "stars": 7.8,
+      "duration": 109
     },
     {
       "title": "The Kindness of Strangers",
@@ -913,7 +940,8 @@
       "thumbnail_width": 263,
       "thumbnail_height": 379,
       "id": "28",
-      "stars": 8.2
+      "stars": 8.2,
+      "duration": 101
     },
     {
       "title": "The Call of the Wild",
@@ -935,7 +963,8 @@
       "thumbnail_width": 251,
       "thumbnail_height": 397,
       "id": "29",
-      "stars": 8.5
+      "stars": 8.5,
+      "duration": 101
     },
     {
       "title": "Emma",
@@ -960,7 +989,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "30",
-      "stars": 7.9
+      "stars": 7.9,
+      "duration": 133
     },
     {
       "title": "The Last Thing He Wanted",
@@ -984,7 +1014,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "31",
-      "stars": 8.3
+      "stars": 8.3,
+      "duration": 144
     },
     {
       "title": "Brahms: The Boy II",
@@ -1005,7 +1036,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "32",
-      "stars": 7.7
+      "stars": 7.7,
+      "duration": 155
     },
     {
       "title": "The Night Clerk",
@@ -1026,7 +1058,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 330,
       "id": "33",
-      "stars": 8
+      "stars": 8,
+      "duration": 166
     },
     {
       "title": "Impractical Jokers: The Movie",
@@ -1047,7 +1080,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 325,
       "id": "34",
-      "stars": 8.4
+      "stars": 8.4,
+      "duration": 177
     },
     {
       "title": "The Invisible Man",
@@ -1070,7 +1104,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "35",
-      "stars": 9.1
+      "stars": 9.1,
+      "duration": 180
     },
     {
       "title": "All the Bright Places",
@@ -1093,7 +1128,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "36",
-      "stars": 8.7
+      "stars": 8.7,
+      "duration": 121
     },
     {
       "title": "Wendy",
@@ -1112,7 +1148,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "37",
-      "stars": 8.4
+      "stars": 8.4,
+      "duration": 126
     },
     {
       "title": "Guns Akimbo",
@@ -1132,7 +1169,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "38",
-      "stars": 8.9
+      "stars": 8.9,
+      "duration": 115
     },
     {
       "title": "Onward",
@@ -1154,7 +1192,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "39",
-      "stars": 8.1
+      "stars": 8.1,
+      "duration": 113
     },
     {
       "title": "The Way Back",
@@ -1176,7 +1215,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "40",
-      "stars": 8.6
+      "stars": 8.6,
+      "duration": 112
     },
     {
       "title": "Spenser Confidential",
@@ -1200,7 +1240,8 @@
       "thumbnail_width": 260,
       "thumbnail_height": 383,
       "id": "41",
-      "stars": 8.2
+      "stars": 8.2,
+      "duration": 172
     },
     {
       "title": "The Banker",
@@ -1221,7 +1262,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "42",
-      "stars": 7.5
+      "stars": 7.5,
+      "duration": 133
     },
     {
       "title": "The Burnt Orange Heresy",
@@ -1242,7 +1284,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "43",
-      "stars": 6.8
+      "stars": 6.8,
+      "duration": 138
     },
     {
       "title": "Swallow",
@@ -1265,7 +1308,8 @@
       "thumbnail_width": 258,
       "thumbnail_height": 386,
       "id": "44",
-      "stars": 7.1
+      "stars": 7.1,
+      "duration": 167
     },
     {
       "title": "The Rhythm Section",
@@ -1289,7 +1333,8 @@
       "thumbnail_width": 256,
       "thumbnail_height": 383,
       "id": "45",
-      "stars": 7.9
+      "stars": 7.9,
+      "duration": 147
     },
     {
       "title": "Bloodshot",
@@ -1312,7 +1357,8 @@
       "thumbnail_width": 253,
       "thumbnail_height": 383,
       "id": "46",
-      "stars": 6.5
+      "stars": 6.5,
+      "duration": 109
     },
     {
       "title": "The Hunt",
@@ -1335,7 +1381,8 @@
       "thumbnail_width": 251,
       "thumbnail_height": 397,
       "id": "47",
-      "stars": 8
+      "stars": 8,
+      "duration": 120
     },
     {
       "title": "I Still Believe",
@@ -1356,7 +1403,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 316,
       "id": "48",
-      "stars": 7.3
+      "stars": 7.3,
+      "duration": 130
     },
     {
       "title": "Lost Girls",
@@ -1382,7 +1430,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "49",
-      "stars": 7.8
+      "stars": 7.8,
+      "duration": 120
     },
     {
       "title": "Stargirl",
@@ -1402,7 +1451,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "50",
-      "stars": 8.5
+      "stars": 8.5,
+      "duration": 156
     },
     {
       "title": "The Roads Not Taken",
@@ -1422,7 +1472,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "51",
-      "stars": 7.2
+      "stars": 7.2,
+      "duration": 155
     },
     {
       "title": "The Night Clerk",
@@ -1444,7 +1495,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "52",
-      "stars": 6.9
+      "stars": 6.9,
+      "duration": 147
     },
     {
       "title": "The Grudge",
@@ -1466,7 +1518,8 @@
       "thumbnail_width": 258,
       "thumbnail_height": 382,
       "id": "53",
-      "stars": 5.7
+      "stars": 5.7,
+      "duration": 119
     },
     {
       "title": "The Last Thing He Wanted",
@@ -1487,7 +1540,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "54",
-      "stars": 6.7
+      "stars": 6.7,
+      "duration": 167
     },
     {
       "title": "Resistance",
@@ -1513,7 +1567,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "55",
-      "stars": 7.2
+      "stars": 7.2,
+      "duration": 178
     },
     {
       "title": "Uncorked",
@@ -1533,7 +1588,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "56",
-      "stars": 6.8
+      "stars": 6.8,
+      "duration": 142
     },
     {
       "title": "Vivarium",
@@ -1551,7 +1607,8 @@
       "thumbnail_width": 220,
       "thumbnail_height": 326,
       "id": "57",
-      "stars": 7.5
+      "stars": 7.5,
+      "duration": 174
     },
     {
       "title": "Coffee & Kareem",
@@ -1573,7 +1630,8 @@
       "thumbnail_width": 259,
       "thumbnail_height": 383,
       "id": "58",
-      "stars": 6.2
+      "stars": 6.2,
+      "duration": 138
     },
     {
       "title": "Trolls World Tour",
@@ -1601,7 +1659,8 @@
       "thumbnail_width": 258,
       "thumbnail_height": 386,
       "id": "59",
-      "stars": 8.1
+      "stars": 8.1,
+      "duration": 130
     },
     {
       "id": "60",
@@ -1619,14 +1678,35 @@
       "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS3_Bu8aJaA_DE7bOSQ7bz3o9Y6whQ7_0PxNnBfGXQ82nE1xVRh",
       "thumbnail_width": 258,
       "thumbnail_height": 386,
-      "stars": 8.5
+      "stars": 8.5,
+      "duration": 139
     }
   ],
   "users": [
     {
-      "username": "administrador",
-      "password": "vialactea",
+      "username": "administrador@gmail.com",
+      "password": "admin",
       "id": "d847"
+    },
+    {
+      "id": "e054",
+      "username": "iredica@gmail.com",
+      "password": "12345"
+    },
+    {
+      "id": "e2fa",
+      "username": "aa@gmail.com",
+      "password": "aaaa"
+    },
+    {
+      "id": "0aee",
+      "username": "a@gmail.com",
+      "password": "a"
+    },
+    {
+      "id": "9e1c",
+      "username": "a@gmail.com",
+      "password": "a"
     }
   ]
 }
