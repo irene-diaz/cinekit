@@ -1,3 +1,5 @@
+import db from '../../../../db.json'; 
+
 import { error, json } from '@sveltejs/kit';
 
 

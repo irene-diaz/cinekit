@@ -2,9 +2,25 @@
 	let username = '';
 	let password = '';
 
-	const handleSubmit = async () => {
-        if(username!=="administrador@gmail.com"&&password!=="admin"){
-        const response = await fetch('http://localhost:4000/users', {
+    const handleSubmit = async () => {
+        const response = await fetch('http://localhost:4000/users');
+        const data = await response.json();
+        
+        // Verifica si el usuario ya existe en la base de datos
+        const existingUser = data.find(user => user.username === username);
+
+        if (existingUser) {
+            console.log("Usuario existente, iniciando sesión...");
+            document.cookie = `userActual=${username}; path=/`;
+            setTimeout(() => {
+                window.location.href = '/';
+            }, 100);
+            return;
+        }
+
+        // Si el usuario no existe, procede con la lógica actual para agregarlo
+        console.log("Agregando nuevo usuario...");
+        const newUserResponse = await fetch('http://localhost:4000/users', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -14,27 +30,18 @@
                 password
             })
         });
-        const data = await response.json();
-        //console.log(data);
-        if (response.ok) {
+        const newUser = await newUserResponse.json();
+
+        if (newUserResponse.ok) {
             document.cookie = `userActual=${username}; path=/`;
-            // redirecciono a otra página después de un breve retraso para asegurar que la cookie se haya establecido correctamente
             setTimeout(() => {
                 window.location.href = '/';
             }, 100);
         } else {
-            alert(data.message);
+            alert(newUser.message);
         }
     }
-    else{
-        console.log("usuario loggeado")
-        document.cookie = `userActual="administrador@gmail.com"; path=/`;
-            // redirecciono a otra página después de un breve retraso para asegurar que la cookie se haya establecido correctamente
-            setTimeout(() => {
-                window.location.href = '/';
-            }, 100);
-    }
-}
+
 
 </script>
 
