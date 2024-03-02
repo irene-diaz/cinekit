@@ -37,10 +37,14 @@
 	{/if}
 
 	<a href="/todas">Todas</a>
-	
-	{#if $page.data.user!=="administrador@gmail.com"}
-		<a href="/favoritos">Favoritas</a>
+
+	{#if $page.data.user}
+		{#if $page.data.user!=="administrador@gmail.com"}
+			<a href="/favoritos">Favoritas</a>
+		{/if}
 	{/if}
+	
+	
 
 	{#if $page.data.user}
 		<button on:click={handleLogout} class="logout">Logout</button>

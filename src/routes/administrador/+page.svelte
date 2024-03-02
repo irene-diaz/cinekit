@@ -17,9 +17,16 @@
 	function handleCreate() {
 		showForm = true;
 	}
-	function handleUpdate() {
-		showFormU = true;
+	function handleUpdate(id) {
+		// Si el formulario ya está abierto para esta fila, ciérralo
+		if (showFormU === id) {
+			showFormU = null;
+		} else {
+			// Si no, establece el estado para mostrar el formulario solo para esta fila
+			showFormU = id;
+		}
 	}
+
 </script>
 
 <div id="centered" class={$darkmode ? 'darkmode' : ''}>
@@ -57,29 +64,32 @@
 				{title}
 			</th>
 		</tr>-->
-		{#each peliculas as pelicula}
-			<tr>
-				<td>{pelicula.title}</td>
-
-				<td>
-					<form method="POST" action="?/delete">
-						<input type="text" name="id" value={pelicula.id} />
-						<input type="submit" value="" class="papelera" />
-					</form>
-				</td>
-				<td><button on:click={handleUpdate}><h4>Editar pelicula</h4></button></td>
-				<div>
-					{#if showFormU === true}
-						<form action="?/update" method="POST">
-							<input type="hidden" name="id" value={pelicula.id} />
-							Title:<input type="text" name="title" value={pelicula.title} required />
-							<p />
-							<input type="submit" value="Actualizar" />
-						</form>
-					{/if}
-				</div>
-			</tr>
-		{/each}
+		{#each peliculas as pelicula (pelicula.id)}
+    <tr>
+        <td>{pelicula.title}</td>
+        <td>
+            <form method="POST" action="?/delete">
+                <input type="text" name="id" value={pelicula.id} />
+                <input type="submit" value="" class="papelera" />
+            </form>
+        </td>
+        <td>
+            <button on:click={() => handleUpdate(pelicula.id)}>
+                <h4>Editar pelicula</h4>
+            </button>
+        </td>
+        <div>
+            {#if showFormU === pelicula.id}
+                <form action="?/update" method="POST">
+                    <input type="hidden" name="id" value={pelicula.id} />
+                    Title:<input type="text" name="title" value={pelicula.title} required />
+                    <p />
+                    <input type="submit" value="Actualizar" />
+                </form>
+            {/if}
+        </div>
+    </tr>
+{/each}
 	</table>
 
 	<!--hacemos un formulario, en la que introducimos cada usuario
