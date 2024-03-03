@@ -6,10 +6,10 @@
         const response = await fetch('http://localhost:4000/users');
         const data = await response.json();
         
-        // Verifica si el usuario ya existe en la base de datos
-        const existingUser = data.find(user => user.username === username);
+        //verifica si el usuario ya existe 
+        const existeUser = data.find(user => user.username === username);
 
-        if (existingUser) {
+        if (existeUser) {
             console.log("Usuario existente, iniciando sesión...");
             document.cookie = `userActual=${username}; path=/`;
             setTimeout(() => {
@@ -18,7 +18,7 @@
             return;
         }
 
-        // Si el usuario no existe, procede con la lógica actual para agregarlo
+        //si el usuario no existe lo agrega
         console.log("Agregando nuevo usuario...");
         const newUserResponse = await fetch('http://localhost:4000/users', {
             method: 'POST',

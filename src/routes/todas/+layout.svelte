@@ -1,28 +1,51 @@
 <script>
+
 	//recogemos los datos de +page.server.js
 	export let data;
 	import { darkmode } from '../../stores/store';
 	import * as samples from '../../components/samples';
 	import { vermas } from '../../stores/store';
-	//export let genreColorAssociations = samples.genreColorAssociations || [];
+	import CardsJson from '../../components/CardsJson.svelte';
+   // import genreColorAssociations from '../../../db.json';
 
 	const title = data.title;
 	let peliculas = data.peliculas;
+	let genreColorAssociations=data.genreColorAssociations;
+	console.log(data); // Imprime todos los datos recibidos del servidor
+	console.log("genreColorAssociations:", genreColorAssociations);
 
-	peliculas.sort(() => Math.random() - 0.5);
+
+	//peliculas.sort(() => Math.random() - 0.5);
 
 	let count = peliculas.length;
 	let orden = '';
 
-	/*function saberColor2(genero) {
-		let color;
-		genreColorAssociations.forEach(function (array) {
-			if (array.genre == genero) {
-				color = array.color;
-			}
-		});
-		return color;
-	}*/
+	function saberColorJson(genero) {
+    console.log("Genero:", genero);
+    // Verifica si genreColorAssociations está definido y es un array
+    if (Array.isArray(genreColorAssociations)) {
+        // Itera sobre cada entrada en genreColorAssociations
+        for (const entry of genreColorAssociations) {
+            console.log("Entry.genre:", entry.genre);
+            // Verifica si la propiedad 'genre' coincide con el género proporcionado
+            if (entry.genre === genero) {
+                // Devuelve el color correspondiente si hay una coincidencia
+                return entry.color;
+            }
+        }
+    }
+
+    // Si no se encuentra el género, se devuelve un color predeterminado
+    return 'red';
+}
+
+
+
+
+
+
+
+
 
 	function onChange(event) {
 		orden = event.currentTarget.value;
@@ -122,6 +145,13 @@
 	/>
 	Duración menor
 	<h1 style="color: var(--blue);">Peliculas (número total de peliculas {count})</h1>
+
+
+
+<!--
+	<CardsJson movies={peliculas}/>
+
+-->
 	<div class="movie-cards">
 		{#each peliculas as pelicula}
 			<!--<h1>{title}</h1>-->
@@ -140,20 +170,25 @@
 							{pelicula.stars} <i class="fa-solid fa-star"></i>
 							| {pelicula.year} | {pelicula.duration} min
 						</h3>
-						<!--
+						
 						<div class="allgenders">
 							{#each pelicula.genres as genre}
-								<div class="gender" style="background-color: {saberColor2(genre)};">
+								<div class="gender" style="background-color: {saberColorJson(genre)};">
 									<p style="color:black">{genre}</p>
 								</div>
 							{/each}
 						</div>
-						-->
+						
 					</div>
 				</div>
 			</div>
 		{/each}
 	</div>
+
+
+
+
+
 </footer>
 
 <style>

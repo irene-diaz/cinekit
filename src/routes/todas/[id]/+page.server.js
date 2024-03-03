@@ -21,13 +21,23 @@ export const load = async (serverLoadEvent) => {
 		//throw error(404, { message: 'Product not found', hint: 'Try a different product' });
 		throw redirect(307, '/todas'); //mirar como recoger query params en sveltekit(?), para asu ponerle un mensaje antes de redirigir
 	}
+
+	const response2 = await fetch('http://localhost:4000/genreColorAssociations/');
+	if (response2.status === 404) {
+		throw redirect(307, '/'); 
+	}
 	console.log('response', response.status);
+	console.log('response2', response2.status);
+
 	//esperamos a que llegue esa respuesta y la transformamos a json
 	const peliculas = await response.json();
+	const genreColorAssociations = await response.json();
+
 	const title = `La pelicula numero ${id} es ${peliculas.title}`;
 	return {
 		title,
-		peliculas
+		peliculas,
+		genreColorAssociations
 	};
 };
 

@@ -6,18 +6,22 @@
 </script>
 
 <ul>
-	{#each genreColorAssociations as { genre, color }}
-		<li class="category">
-			<button
-				on:click={() => categoria.update((value) => genre)}
-				class="btn btn-category"
-				style="background-image: linear-gradient(135deg, {color}, var(--blue));"
-			>
-				{genre}
-			</button>
-		</li>
-	{/each}
+    {#each genreColorAssociations as { genre, color }}
+        <li class="category">
+            <button
+                on:click={() => categoria.update((value) => genre)}
+                class="btn btn-category"
+                style="background-color: {color};"
+            >
+                {genre}
+            </button>
+        </li>
+    {/each}
 </ul>
+
+
+
+
 
 <style>
 	ul {
@@ -31,7 +35,6 @@
 		width: 80%;
 		height: 50%;
 		/*background-image: none;*/
-		background-color: #ff00ff;
 	}
 
 	.btn {

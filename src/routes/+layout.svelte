@@ -17,6 +17,9 @@
 	const title = data.title;
 	let peliculas = data.peliculas;
 	let user = data.user;
+let genreColorAssociations=data.genreColorAssociations;
+	console.log("genreColorAssociations:", genreColorAssociations);
+
 
 	//creamos una variable en la que iran las peliculas que coincidan con la busqueda
 	let copyMovies = [];
