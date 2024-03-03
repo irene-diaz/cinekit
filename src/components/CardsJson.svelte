@@ -1,51 +1,71 @@
 <script>
 	import { vermas } from '../stores/store';
-	import * as samples from '../components/samples';
-
-	export let movies;
+	export let peliculas;
+    
+    export let genreColorAssociations;
 
     function saberColorJson(genero) {
-        let color;
-        genreColorAssociations.forEach(function (item) {
-            if (item.genre === genero) {
-                color = item.color;
+    //console.log("Genero:", genero);
+    // Verifica si genreColorAssociations está definido y es un array
+    if (Array.isArray(genreColorAssociations)) {
+        // Itera sobre cada entrada en genreColorAssociations
+        for (const entry of genreColorAssociations) {
+           // console.log("Entry.genre:", entry.genre);
+            // Verifica si la propiedad 'genre' coincide con el género proporcionado
+            if (entry.genre === genero) {
+                // Devuelve el color correspondiente si hay una coincidencia
+                return entry.color;
             }
-        });
-        return color;
+        }
     }
+
+    // Si no se encuentra el género, se devuelve un color predeterminado
+    return 'red';
+}
 
 	
 </script>
 
 <div class="movie-cards">
-	{#each movies as movie}
-		<div class="card">
-			<img src={movie.thumbnail} alt="" />
-			<div class="titlecage">
-				<h1 class="title">{movie.title}</h1>
-			</div>
-			<div class="content">
-				<button class="vermas" on:click={() => vermas.update((value) => movie.title)}
-					>VER MÁS</button
-				>
-				<div class="contentelements">
-					<h1 class="name">{movie.title}</h1>
-					<h3 class="info">
-						{movie.stars} <i class="fa-solid fa-star"></i>
-						| {movie.year} | {movie.duration} min
-					</h3>
-					<div class="allgenders">
-						{#each movie.genres as genre}
-							<div class="gender" style="background-color: {saberColorJson(genre)};">
-								<p style="color:black">{genre}</p>
-							</div>
-						{/each}
-					</div>
-				</div>
-			</div>
-		</div>
-	{/each}
+    {#each peliculas as pelicula}
+        <!--<h1>{title}</h1>-->
+        <div class="card">
+            <img src={pelicula.thumbnail} alt="" />
+            <div class="titlecage">
+                <h1 class="title">{pelicula.title}</h1>
+            </div>
+            <div class="content">
+                <button class="vermas" on:click={() => vermas.update((value) => pelicula.title)}
+                    >VER MÁS</button
+                >
+                <div class="contentelements">
+                    <h1 class="name">{pelicula.title}</h1>
+                    <h3 class="info">
+                        {pelicula.stars} <i class="fa-solid fa-star"></i>
+                        | {pelicula.year} | {pelicula.duration} min
+                    </h3>
+                    
+                    <div class="allgenders">
+                        {#each pelicula.genres as genre}
+                            <div class="gender" style="background-color: {saberColorJson(genre)};">
+                                <p style="color:black">{genre}</p>
+                            </div>
+                        {/each}
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    {/each}
 </div>
+
+
+
+
+
+
+
+
 
 <style>
 .movie-cards{
@@ -166,13 +186,7 @@
     transform: translateY(-0.9rem);
 }
 
-.drama{
-    background-color: palevioletred;
-}
 
-.comedia{
-    background-color: orange;
-}
 
 .vermas{
     position: absolute;
