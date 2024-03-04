@@ -38,7 +38,10 @@
                 <button class="vermas" on:click={() => vermas.update((value) => pelicula.title)}
                     >VER MÁS</button
                 >
-                <input type="checkbox" />
+                <form action="/favoritos" method="post">
+                    <button type="submit">*</button>
+                </form>
+               
                 
                 <div class="contentelements">
                     <h1 class="name">{pelicula.title}</h1>

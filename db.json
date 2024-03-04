@@ -1696,6 +1696,18 @@
       "password": "admin",
       "id": "d847",
       "favs": []
+    },
+    {
+      "id": "4a48",
+      "username": "iredica@gmail.com",
+      "password": "hola",
+      "favs": []
+    },
+    {
+      "id": "2a5c",
+      "username": "hola@gmail.com",
+      "password": "1234",
+      "favs": []
     }
   ]
 }
