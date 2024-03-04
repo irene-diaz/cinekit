@@ -1,4 +1,4 @@
-import db from '../../../../db.json'; 
+
 
 import { error, json } from '@sveltejs/kit';
 
@@ -14,7 +14,7 @@ export const POST = async ({ request, cookies }) => {
     });
 
     return json(
-        { name: data.username, id: 1 },
+        { name: data.username},
         { status: 200 }
     );
 };

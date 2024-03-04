@@ -27,7 +27,8 @@
             },
             body: JSON.stringify({
                 username,
-                password
+                password,
+                favs:[]
             })
         });
         const newUser = await newUserResponse.json();
