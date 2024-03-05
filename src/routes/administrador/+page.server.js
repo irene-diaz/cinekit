@@ -2,8 +2,6 @@
 /*FUNCION LOAD SOLO PARA EL SERVIDOR*/
 //exportamos una funcion la cual se encargara de cargar la informacion que queramos, toda los objetos o constantes que se devuelvan en la funcion load estaran dentro de data
 
-/*FUNCION LOAD SOLO PARA EL SERVIDOR*/
-
 //importamos el error de svelteKit
 import { redirect } from '@sveltejs/kit';
 
@@ -29,25 +27,6 @@ export const load = async (serverLoadEvent) => {
 	};
 };
 
-//FICHERO QUE LEE EL SERVIDOR
-//importamos fail, esto no ayuda a proceder y capturar un error
-/*import fail from '@sveltejs/kit';
-import path from 'path';
-//funcion que lee los datos(le pasamos las cookies, que es donde ira guardado el id de cada usuario)
-export function load({ cookies }) {
-	let id = cookies.get('userid');
-
-	//en el caso de que no haya usuarios, creamos uno con id aleatorio, y le asigamos ese id a una cookie
-	if (!id) {
-		id = crypto.randomUUID();
-		cookies.set('userid', id, { path: '/' });
-	}
-
-	//devolvemos todos los usuarios
-	return {
-		todos: db.getTodos(id)
-	};
-}*/
 
 //creamos acciones
 export const actions = {
@@ -62,8 +41,15 @@ export const actions = {
 		const title=data.get('title');
 		const year=data.get('year');
 		const image=data.get('imagen');
+		const duration=data.get('duration');
+		const genre=data.get('genres');
 
-		console.log(title);
+		//console.log(title);
+		const response2 = await fetch('http://localhost:4000/genreColorAssociations/');
+		if (response2.status === 404) {
+		throw redirect(307, '/'); 
+		}
+		const  genreColorAssociations  = await response2.json();
 		const response = await fetch(`http://localhost:4000/peliculas/`);
 
 		const peliculas = await response.json();
@@ -88,7 +74,10 @@ export const actions = {
 					"year":year,
 					"thumbnail":image,
 					"thumbnail_width": 258,
-      				"thumbnail_height": 386
+      				"thumbnail_height": 386,
+					"stars": 5.0,
+					"duration": duration,
+					"genres": [genre]
                     /*"username":formUser,
                     "password":formPassword,
                     "email":formEmail,
@@ -114,19 +103,6 @@ export const actions = {
 		else{
 			mensajeError="Ha habido un problema al crear la pelicula";
 		}
-
-        //si todo sale bien crea el usuario
-       /* try{
-        //con esto cremaos el formulario, ocn el id recibido por las cookies y la descripcion recibida por el data(FUNCION CREATE)
-		db.createTodo(cookies.get('userid'), data.get('description'));
-        }
-        //sino crea el usuario, capturamos y procesamos el error
-        catch(error){
-            return fail(422,{
-                decription:data.get('description'),
-                error:error.message
-            })
-        }*/
 		
 		
 	},
@@ -171,6 +147,11 @@ export const actions = {
 		console.log(id);
 
 		const title=data.get('title');
+		const year=data.get('year');
+		const thumbnail=data.get('thumbnail');
+		const duration=data.get('duration');
+		const genres=data.get('genres');
+
 
 		console.log(title);
 
@@ -178,11 +159,11 @@ export const actions = {
                 method:'PATCH',
                 body:JSON.stringify({
                     "id":id,
-					"title":title
-                    /*"username":formUser,
-                    "password":formPassword,
-                    "email":formEmail,
-                    "games":[],*/
+					"title":title,
+					"year":year,
+					"thubnail":thumbnail,
+					"duration":duration,
+					"genres":[genres]
                     
                 }), 
                 headers:{

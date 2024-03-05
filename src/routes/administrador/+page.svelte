@@ -1,21 +1,20 @@
 <!--ESto es lo que vera el cliente en esta ruta-->
 <!--FICHERO QUE VERA EL CLIENTE-->
 <script>
-	/*//exportaremos todos los usuarios(los sacamos del servidor, en concreto, de +page.server.js)
-	export let data;
-	//propiedad para saber cosas de los forms(en este caso no interesa el error)
-	export let form;
-	<script>*/
-	//recogemos los datos de +page.server.js
 	import { darkmode } from '../../stores/store';
 	export let form;
 	export let data;
-	const title = data.title;
+	//const title = data.title;
 	const peliculas = data.peliculas;
+	const genres = data.genreColorAssociations;
 	let showForm = false;
 	let showFormU = false;
 	function handleCreate() {
-		showForm = true;
+		if (showForm) {
+			showForm = null;
+		} else {
+			showForm = true;
+		}
 	}
 	function handleUpdate(id) {
 		// Si el formulario ya está abierto para esta fila, ciérralo
@@ -26,7 +25,6 @@
 			showFormU = id;
 		}
 	}
-
 </script>
 
 <div id="centered" class={$darkmode ? 'darkmode' : ''}>
@@ -51,9 +49,18 @@
 				Year: <input type="text" name="year" id="" />
 			</p>
 			Thumbnail:<input type="url" name="imagen" id="" />
-			<p />
+			<p>
+				Duration: <input type="number" name="duration" id="" />
+			</p>
+			Genres:<select name="genres" id="">
+				{#each genres as genre}
+					<option value={genre.genre}>{genre.genre}</option>
+				{/each}
+			</select>
+			<p></p>
 			<input type="submit" value="Crear" />
 		</form>
+		<p></p>
 	{/if}
 
 	<!--Mostramos el titulo y imagen de cada pelicula-->
@@ -65,62 +72,43 @@
 			</th>
 		</tr>-->
 		{#each peliculas as pelicula (pelicula.id)}
-    <tr>
-        <td>{pelicula.title}</td>
-        <td>
-            <form method="POST" action="?/delete">
-                <input type="text" name="id" value={pelicula.id} />
-                <input type="submit" value="" class="papelera" />
-            </form>
-        </td>
-        <td>
-            <button on:click={() => handleUpdate(pelicula.id)}>
-                <h4>Editar pelicula</h4>
-            </button>
-        </td>
-        <div>
-            {#if showFormU === pelicula.id}
-                <form action="?/update" method="POST">
-                    <input type="hidden" name="id" value={pelicula.id} />
-                    Title:<input type="text" name="title" value={pelicula.title} required />
-                    <p />
-                    <input type="submit" value="Actualizar" />
-                </form>
-            {/if}
-        </div>
-    </tr>
-{/each}
+			<tr>
+				<td>{pelicula.title}</td>
+				<td>
+					<form method="POST" action="?/delete">
+						<input type="text" name="id" value={pelicula.id} />
+						<input type="submit" value="" class="papelera" />
+					</form>
+				</td>
+				<td>
+					<button on:click={() => handleUpdate(pelicula.id)}>
+						<h4>Editar pelicula</h4>
+					</button>
+				</td>
+				<div>
+					{#if showFormU === pelicula.id}
+						<form action="?/update" method="POST">
+							<input type="hidden" name="id" value={pelicula.id} />
+							Title:<input type="text" name="title" value={pelicula.title} required />
+							<p>
+								Year: <input type="text" name="year" value={pelicula.year} />
+							</p>
+							Thumbnail:<input type="url" name="imagen" value={pelicula.thumbnail} />
+							<p>
+								Duration: <input type="number" name="duration" value={pelicula.duration} />
+							</p>
+							Genres:
+							{#each pelicula.genres as genre}
+								{genre}<input type="checkbox" name="genres" value={genre} checked />
+							{/each}
+							<p />
+							<input type="submit" value="Actualizar" />
+						</form>
+					{/if}
+				</div>
+			</tr>
+		{/each}
 	</table>
-
-	<!--hacemos un formulario, en la que introducimos cada usuario
-         Al ponerle el atributo accion al formulario, le podemos indicar que accion definida por el servidor quieres que haga al hacer el POST, en este caso
-          haremos la de create(crear un usuario)
-	<form method="POST" action="?/crear">
-		<label>-->
-	<!--add a todo:
-			Gracias al required, indicamos que es obligatorio este campo para enviar el formulario. Tenemos que tener claro que una validacion en el cliente no
-            es suficiente, ya que un cliente si sabe acceder a las herramientas de desarrollador, podria entrar y modificar e cmapo, la manera de asegurarnos de 
-            que no pueda modificarlo, es hacer una validacion en el servidor(en este caso como es logico la hariamos en la base de datos y lo capturariamos y 
-            procesariamos en el page.server.js)-->
-	<!--El value captura si tiene o no descipcion, sino la tiene tiene en cuenta el error-->
-	<!--<input name="description" value={form?.description ?? ''} autocomplete="off" required />
-		</label>
-	</form>-->
-
-	<!-- <ul class="todos">
-		{#each peliculas as pelicula (pelicula.id)}
-			<li>
-				Hacemos un formulario el cual tiene el boton de eliminar(eliminar un usuario)-->
-	<!-- <form method="POST" action="?/delete">
-					Recibe el id del usuario que queremos borrar y la descripcion, y lo borra(no lo
-					introducimos nosotros es un cmapo hidden que recibimos por el servidor)
-					mostramos todos los usuarios-->
-	<!-- <span>{pelicula.title}</span>
-					Botoncito del cubo de basura, le das y se elimina el usuario
-				</form>
-			</li>
-		{/each} 
-	</ul> -->
 </div>
 
 <style>

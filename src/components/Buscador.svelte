@@ -2,18 +2,19 @@
 	import * as samples from '../components/samples';
 	import Cartas from '../components/Cards.svelte';
 	import { darkmode } from '../stores/store';
-	export let movies = samples.peliculas || [];
-	export let cast = samples.cast || {};
+	//export let movies = samples.peliculas || [];
+	//export let cast = samples.cast || {};
 	import Vermas from '../components/Vermas.svelte';
 	import { vermas } from '../stores/store';
 	//creamos una variable en la que iran las peliculas que coincidan con la busqueda
 	let copyMovies = [];
-	let copyCast = [];
+	//let copyCast = [];
+	export let peliculas;
 
 	//esto lo que hace es crear un array con las propiedades del objeto
-	const reparto = Object.values(cast);
+	//const reparto = Object.values(cast);
 	var countMovies = 0;
-	var countCast = 0;
+	//var countCast = 0;
 	function handleSearchTitle(e) {
 		//creamos una variable para guardar el evento de la busqueda
 		const p = e.target.value;
@@ -21,7 +22,7 @@
 			copyMovies = [];
 		} else {
 			//Hacemos un filter por cada pelicula
-			const results = movies.filter((movie) => {
+			const results = peliculas.filter((movie) => {
 				const title = movie.title;
 				//console.log(cast.filter(c=>c.search(p)>=0))
 				return title.search(new RegExp(p, 'i')) >= 0; //|| cast.filter(c=>c.search(p)!=1);
