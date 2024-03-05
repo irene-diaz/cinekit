@@ -38,9 +38,6 @@
                 <button class="vermas" on:click={() => vermas.update((value) => pelicula.title)}
                     >VER MÁS</button
                 >
-                <form action="/favoritos" method="post">
-                    <button type="submit">*</button>
-                </form>
                
                 
                 <div class="contentelements">
@@ -207,91 +204,6 @@
     background-color: #7BA9CD;
     cursor: pointer;
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-input[type="checkbox"] {
-    transform: translate3D(-50%, -50%, 0);
-    left: 10%;
-    top: 8%;
-    position: absolute;
-}
-
-input[type="checkbox"]:before,
-input[type="checkbox"]:after {
-    content: "";
-    cursor: pointer;
-    background-image: url(http://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/2000px-Heart_coraz%C3%B3n.svg.png);
-    background-size: cover;
-    height: 2rem;
-    width: 2rem;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3D(-50%, -50%, 0);
-    filter: grayscale(100%);
-}
-
-input[type="checkbox"]:after {
-    opacity: 0;
-    filter: grayscale(0%);
-}
-
-input[type="checkbox"]:checked:before {
-    filter: grayscale(0%);
-}
-
-input[type="checkbox"]:checked:after {
-    animation: ascend ease-in-out 800ms;
-}
-
-@-webkit-keyframes ascend {
-    0% {
-        transform: translate3D(-50%, -50%, 0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate3D(-50%, -200%, 0);
-        opacity: 0;
-    }
-}
-
-@-moz-keyframes ascend {
-    0% {
-        transform: translate3D(-50%, -50%, 0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate3D(-50%, -200%, 0);
-        opacity: 0;
-    }
-}
-
-@keyframes ascend {
-    0% {
-        transform: translate3D(-50%, -50%, 0);
-        opacity: 1;
-    }
-    100% {
-        transform: translate3D(-50%, -200%, 0);
-        opacity: 0;
-    }
 }
 
 

@@ -19,7 +19,7 @@
 </script>
 
 <div class="card-darkmode" id={$darkmode ? 'darkmode' : ''}>
-	<button class="btn btn-category" on:click={() => vermas.update((value) => '')}>volver</button>
+	<button class="btn btn-category" on:click={() => vermas.update((value) => '')}>Quitar</button>
 
 	{#each movie as m}
 		<div class="movie-card">
@@ -69,7 +69,7 @@
 					{#each m.cast as actor}
 						<div class="actor">
 							<div class="fotito">
-								<img src="src/data/actors/user.png" alt="avatar1" />
+								<img src="src/components/user.png" alt="avatar1" />
 							</div>
 							<p style="color: black;">{actor}</p>
 						</div>
@@ -109,16 +109,16 @@ https://codepen.io/drehimself/pen/azBmdK
 		font-family: 'Coiny', sans-serif;
 		line-height: 1;
 		text-transform: uppercase;
-		font-size: 2rem;
-		padding: 16px 30px 13px;
+		font-size: 1.7rem;
+		padding: 14px 25px 10px;
 		color: #fafaf9;
 		border-radius: 100px;
 		cursor: pointer;
 		transition: 0.3s;
-		background-image: linear-gradient(135deg, grey, var(--blue));
-		position: absolute;
+		background-image: linear-gradient(135deg, grey, #7BA9CD);
+		position: relative;
 		top: 15rem;
-		left: 2rem;
+		margin-right: 2rem;
 	}
 	.btn:hover {
 		transform: scale(110%);
@@ -126,7 +126,7 @@ https://codepen.io/drehimself/pen/azBmdK
 
 	a {
 		text-decoration: none;
-		color: var(--blue);
+		color: #7BA9CD;
 	}
 
 	a:hover {
@@ -159,7 +159,7 @@ https://codepen.io/drehimself/pen/azBmdK
 		z-index: 1;
 		border-top-left-radius: 5px;
 		border-top-right-radius: 5px;
-		background-color: var(--blue);
+		background-color: #7BA9CD;
 		padding: 1rem 0 0 280px;
 	}
 
@@ -201,12 +201,6 @@ https://codepen.io/drehimself/pen/azBmdK
 		margin-left: 24px;
 	}
 
-	.likes:before {
-		content: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/icon_like.png');
-		position: relative;
-		top: 2px;
-		padding-right: 7px;
-	}
 
 	.description {
 		bottom: 0px;
@@ -251,7 +245,7 @@ https://codepen.io/drehimself/pen/azBmdK
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		border: solid 1px var(--blue);
+		border: solid 1px #7BA9CD;
 		border-radius: 0.5rem;
 		margin: 1rem;
 		padding: 0.5rem;
@@ -303,7 +297,7 @@ https://codepen.io/drehimself/pen/azBmdK
 	}
 
 	.rating > label {
-		color: var(--blue);
+		color: #7BA9CD;
 		float: right;
 	}
 

@@ -47,92 +47,57 @@
 
 
 
-	function onChange(event) {
-		orden = event.currentTarget.value;
-		console.log('ordenados:' + orden);
-		if (orden === 'Alfabetico') {
-			peliculas = peliculas.sort((a, b) => {
-				const titleA = a.title.toUpperCase(); // Convertir a mayúsculas para ignorar mayúsculas y minúsculas
-				const titleB = b.title.toUpperCase();
+const comparators = {
+        'Alfabetico': (a, b) => a.title.localeCompare(b.title),
+        'Anualmoderno': (a, b) => b.year - a.year,
+        'Anualantiguo': (a, b) => a.year - b.year,
+        'ValoracionMejor': (a, b) => b.stars - a.stars,
+        'ValoracionPeor': (a, b) => a.stars - b.stars,
+        'Duracionmayor': (a, b) => b.duration - a.duration,
+        'Duracionmenor': (a, b) => a.duration - b.duration
+    };
 
-				if (titleA < titleB) {
-					return -1;
-				}
-				if (titleA > titleB) {
-					return 1;
-				}
-				// Los títulos son iguales
-				return 0;
-			});
-		} else if (orden === 'Anualmoderno') {
-			peliculas = peliculas.sort((a, b) => b.year - a.year);
-		} else if (orden === 'Anualantiguo') {
-			peliculas = peliculas.sort((a, b) => a.year - b.year);
-		} else if (orden === 'ValoracionMejor') {
-			peliculas = peliculas.sort((a, b) => b.stars - a.stars);
-		} else if (orden === 'ValoracionPeor') {
-			peliculas = peliculas.sort((a, b) => a.stars - b.stars);
-		} else if (orden === 'Duracionmayor') {
-			peliculas = peliculas.sort((a, b) => b.duration - a.duration);
-		} else if (orden === 'Duracionmenor') {
-			peliculas = peliculas.sort((a, b) => a.duration - b.duration);
-		}
-	}
+    // Define la función onChange
+    function onChange(event) {
+        const orden = event.currentTarget.value; // Obtiene la opción seleccionada
+
+        // Obtén la función de comparación correspondiente a la opción seleccionada
+        const comparator = comparators[orden];
+
+        // Ordena las películas utilizando la función de comparación obtenida
+        if (comparator) {
+            peliculas = peliculas.sort(comparator);
+        }
+
+        console.log('ordenados:' + orden);
+    }
 </script>
 
+<footer class={$darkmode ? 'darkmode' : ''}>
 <slot />
 
-<footer class={$darkmode ? 'darkmode' : ''}>
-	<input type="radio" checked={orden === 'Alfabetico'} on:change={onChange} value="Alfabetico" />
-	Alfabético
+<input type="radio" name="orden" id="alfabetico" checked={orden === 'Alfabetico'} on:change={onChange} value="Alfabetico" />
+<label for="alfabetico">Alfabético</label>
 
-	<input
-		type="radio"
-		checked={orden === 'Anualmoderno'}
-		on:change={onChange}
-		value="Anualmoderno"
-	/>
-	Año de mas moderno a más antiguo
+<input type="radio" name="orden" id="anualmoderno" checked={orden === 'Anualmoderno'} on:change={onChange} value="Anualmoderno" />
+<label for="anualmoderno">Año de más moderno a más antiguo</label>
 
-	<input
-		type="radio"
-		checked={orden === 'Anualantiguo'}
-		on:change={onChange}
-		value="Anualantiguo"
-	/>
-	Año de mas antiguo a más moderno
+<input type="radio" name="orden" id="anualantiguo" checked={orden === 'Anualantiguo'} on:change={onChange} value="Anualantiguo" />
+<label for="anualantiguo">Año de más antiguo a más moderno</label>
 
-	<input
-		type="radio"
-		checked={orden === 'ValoracionMejor'}
-		on:change={onChange}
-		value="ValoracionMejor"
-	/>
-	Mejor valoradas
+<input type="radio" name="orden" id="valoracionmejor" checked={orden === 'ValoracionMejor'} on:change={onChange} value="ValoracionMejor" />
+<label for="valoracionmejor">Mejor valoradas</label>
 
-	<input
-		type="radio"
-		checked={orden === 'ValoracionPeor'}
-		on:change={onChange}
-		value="ValoracionPeor"
-	/>
-	Peor valoradas
+<input type="radio" name="orden" id="valoracionpeor" checked={orden === 'ValoracionPeor'} on:change={onChange} value="ValoracionPeor" />
+<label for="valoracionpeor">Peor valoradas</label>
 
-	<input
-		type="radio"
-		checked={orden === 'Duracionmayor'}
-		on:change={onChange}
-		value="Duracionmayor"
-	/>
-	Duración mayor
+<input type="radio" name="orden" id="duracionmayor" checked={orden === 'Duracionmayor'} on:change={onChange} value="Duracionmayor" />
+<label for="duracionmayor">Duración mayor</label>
 
-	<input
-		type="radio"
-		checked={orden === 'Duracionmenor'}
-		on:change={onChange}
-		value="Duracionmenor"
-	/>
-	Duración menor
+<input type="radio" name="orden" id="duracionmenor" checked={orden === 'Duracionmenor'} on:change={onChange} value="Duracionmenor" />
+<label for="duracionmenor">Duración menor</label>	
+
+
 	<h1 style="color: var(--blue);">Peliculas (número total de peliculas {count})</h1>
 
 
@@ -154,5 +119,30 @@
 		padding-left: 5rem;
 		padding-right: 5rem;
 	}
-	
+
+
+     /* Estilos para los botones de radio */
+	 input[type="radio"] {
+        display: none; /* Oculta los botones de radio predeterminados */
+    }
+
+    label {
+    display: inline-block;
+    padding: 1rem 2rem; /* Medidas en rem */
+    margin: 0.5rem; /* Medida en rem */
+    cursor: pointer;
+    border: 0.2rem solid #7BA9CD; /* Medida en rem */
+    border-radius: 2.5rem; /* Medida en rem */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Agrega una transición suave para el cambio de color */
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1); /* Medidas en rem */
+    font-family: 'Roboto', sans-serif; /* Usa la fuente Roboto */
+}
+
+
+
+    input[type="radio"]:checked + label {
+        background-color: #7BA9CD;
+        color: white;
+        border-color: #7BA9CD;
+    }
 </style>

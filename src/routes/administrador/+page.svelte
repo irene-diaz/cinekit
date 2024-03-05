@@ -32,7 +32,7 @@
 	<!-- {#if form?.error}
 		<p class="error">{form.error}</p>
 	{/if} -->
-	<h1>Area de Administrador</h1>
+	<h1 style="color: #7BA9CD;">Area de Administrador</h1>
 	{#if form?.error}
 		<h1 class="error">{form.message}</h1>
 	{/if}
@@ -40,7 +40,7 @@
 		<h1 class="succes">{form.message}</h1>
 	{/if}
 
-	<button on:click={handleCreate}><h3>Haz click aqui para añadir una pelicula</h3></button>
+	<button on:click={handleCreate} style="background-color: yellow;"><h3>Haz click aqui para añadir una pelicula</h3></button>
 	<p></p>
 	{#if showForm === true}
 		<form action="?/crear" method="POST">
@@ -65,29 +65,24 @@
 
 	<!--Mostramos el titulo y imagen de cada pelicula-->
 
-	<table border="1">
-		<!--	<tr>
-			<th>
-				{title}
-			</th>
-		</tr>-->
+	<table class="tabla" border="1">
 		{#each peliculas as pelicula (pelicula.id)}
 			<tr>
-				<td>{pelicula.title}</td>
-				<td>
-					<form method="POST" action="?/delete">
+				<td ><p style="font-size: 1.5rem;">{pelicula.title}</p></td>
+				<td style="background-color: red;">
+					<form class="formEliminar" method="POST" action="?/delete">
 						<input type="text" name="id" value={pelicula.id} />
 						<input type="submit" value="" class="papelera" />
 					</form>
 				</td>
-				<td>
-					<button on:click={() => handleUpdate(pelicula.id)}>
+				<td style="background-color: #4caf50;">
+					<button class="botonEditar"  on:click={() => handleUpdate(pelicula.id)}>
 						<h4>Editar pelicula</h4>
 					</button>
 				</td>
 				<div>
 					{#if showFormU === pelicula.id}
-						<form action="?/update" method="POST">
+						<form class="formUpdate" action="?/update" method="POST">
 							<input type="hidden" name="id" value={pelicula.id} />
 							Title:<input type="text" name="title" value={pelicula.title} required />
 							<p>
@@ -116,6 +111,14 @@
 		background-color: black;
 		color: white;
 	}
+	.botonEditar{
+		width: 100%;
+		height: 100%;
+		background-color: #4caf50;
+		padding: 0;
+		margin: 0;
+		border: none;
+	}
 	#centered {
 		/*max-width: 40%;*/
 		/*margin: 0 auto;
@@ -123,6 +126,9 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
+	}
+	table{
+		background-color: #7BA9CD; /* Color de fondo */
 	}
 
 	label {
@@ -140,11 +146,11 @@
 	.papelera {
 		border: none;
 		background: url(./remove.svg) no-repeat 50% 50%;
-		background-size: 1rem 1rem;
+		background-size: 2rem 2rem;
 		cursor: pointer;
 		height: 100%;
 		aspect-ratio: 1;
-		opacity: 0.5;
+		opacity: .8;
 		transition: opacity 0.2s;
 	}
 
@@ -164,4 +170,92 @@
 	.succes {
 		color: green;
 	}
+
+ /* Estilos para el formulario */
+ 	.formEliminar {
+        display: flex;
+        flex-direction: row;
+		border-radius: 0;
+		background-color: red;
+		width: 2rem; /* Ancho del botón en rem */
+        height: 2rem; /* Altura del botón en rem */
+    }
+
+    /* Estilos para el campo de entrada de texto */
+    .formEliminar input[type="text"] {
+        visibility: hidden;
+		width: 0;
+		height: 0;
+		padding: 0;
+		margin: 0;
+    }
+
+    /* Estilos para el botón de submit */
+    .formEliminar input[type="submit"] {
+        width: 3rem; /* Ancho del botón en rem */
+        height: 3rem; /* Altura del botón en rem */
+        padding: 0; /* Sin relleno */
+        border: none; /* Sin borde */
+		margin: 0;
+        cursor: pointer; /* Cursor apuntador */
+        transition: transform 0.3s; /* Transición de transformación */
+		background-color: white;
+		transform: translateX(-.4rem);
+    }
+	.formEliminar input[type="submit"]:hover {
+        background-color: black; /* Cambio de color de fondo al pasar el cursor */
+    }
+
+	
+
+	/* Estilos para el formulario */
+    form {
+        max-width: 40rem; /* Ancho máximo en rem */
+        margin: 0 auto;
+        padding: 2rem; /* Espaciado interior en rem */
+        background-color: #7BA9CD; /* Color de fondo */
+        border-radius: .5rem; /* Radio de borde en rem */
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); /* Sombra en rem */
+    }
+
+    /* Estilos para etiquetas */
+    label {
+        display: block;
+        margin-bottom: .5rem; /* Espaciado inferior en rem */
+        font-weight: bold;
+        color: #fff; /* Color de texto */
+    }
+
+    /* Estilos para campos de entrada */
+    input[type="text"],
+    input[type="url"],
+    input[type="number"],
+    select {
+        width: calc(100% - 4rem); /* Ancho del campo de entrada en rem */
+        padding: .3rem; /* Espaciado interior en rem */
+        margin-bottom: .3rem; /* Espaciado inferior en rem */
+        border: 0.2rem solid #fff; /* Grosor y color del borde */
+        border-radius: 0.5rem; /* Radio de borde en rem */
+        font-size: .8rem; /* Tamaño de fuente en rem */
+        background-color: #7BA9CD; /* Color de fondo transparente */
+        color: #fff; /* Color de texto */
+        outline: none; /* Borde de enfoque */
+    }
+
+    /* Estilos para el botón */
+    input[type="submit"] {
+        width: 100%;
+        padding: .3rem; /* Espaciado interior en rem */
+        border: none; /* Sin borde */
+        border-radius: 0.5rem; /* Radio de borde en rem */
+        background-color: #005fa8; /* Color de fondo */
+        color: #fff; /* Color de texto */
+        font-size: 1rem; /* Tamaño de fuente en rem */
+        cursor: pointer; /* Cursor apuntador */
+        transition: background-color 0.3s; /* Transición de color de fondo */
+    }
+
+    input[type="submit"]:hover {
+        background-color: #00477d; /* Cambio de color de fondo al pasar el cursor */
+    }
 </style>

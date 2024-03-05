@@ -1670,6 +1670,7 @@
       "thumbnail_width": 258,
       "thumbnail_height": 386,
       "stars": 7.9,
+      "duration": 139,
       "genres": [
         "Horror",
         "Supernatural"
@@ -1683,7 +1684,7 @@
       "thumbnail_width": 258,
       "thumbnail_height": 386,
       "stars": 8.5,
-      "duration": 139,
+      "duration": "139",
       "genres": [
         "Horror",
         "Supernatural"
@@ -1696,12 +1697,11 @@
       "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfcdUv-_3wCXtGjAnRzuJpBIHGflR7R6TKGPFM8MvXy_qMmwZF",
       "thumbnail_width": 258,
       "thumbnail_height": 386,
-      "stars": 5,
+      "stars": 7,
       "duration": "131",
       "genres": [
         "Comedy"
-      ],
-      "thubnail": null
+      ]
     },
     {
       "id": "63",
@@ -1714,8 +1714,7 @@
       "duration": "92",
       "genres": [
         "Adventure"
-      ],
-      "thubnail": null
+      ]
     },
     {
       "id": "64",
@@ -1738,10 +1737,11 @@
       "thumbnail_width": 258,
       "thumbnail_height": 386,
       "stars": 5,
-      "duration": "169",
+      "duration": "170",
       "genres": [
         "Science Fiction"
-      ]
+      ],
+      "thubnail": null
     }
   ],
   "users": [
@@ -1761,6 +1761,12 @@
       "id": "2a5c",
       "username": "hola@gmail.com",
       "password": "1234",
+      "favs": []
+    },
+    {
+      "id": "8760",
+      "username": "a@gmail.com",
+      "password": "a",
       "favs": []
     }
   ]

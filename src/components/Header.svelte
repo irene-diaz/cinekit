@@ -27,16 +27,13 @@
 <header class="layout-header">
 	<!--Creamos dos rutas relativas, mediante enalces que te llevan a la ruta casa y a la ruta products-->
 	<a href="/">Home</a>
-	<!--Desactivamos la precarga de hover para el enlace de productos-->
-	<!--<a href="/products" data-sveltekit-preload-data="off">Products</a>-->
-	<!--los datos no se recargan, solo el codigo-->
-	<!--<a href="/products" data-sveltekit-preload-code="hover">Products</a>-->
-	<!--<a href="/products" data-sveltekit-reload>Products</a>-->
+	
+
+	<a href="/todas">Todas</a>
+
 	{#if $page.data.user=="administrador@gmail.com"}
 		<a href="/administrador">Administrador</a>
 	{/if}
-
-	<a href="/todas">Todas</a>
 
 	{#if $page.data.user}
 		{#if $page.data.user!=="administrador@gmail.com"}
@@ -51,43 +48,67 @@
 	{:else}
 		<a href="/auth/login" class="login">Login</a>
 	{/if}
-	
-	<!--Creacion de un boton que navega a productos, con onclick navegamos a la ruta products, cuando el raton este encima o posado se precarga el fetch de productos-->
-	<!--<button
-		on:mouseover={async () => {
-			await preloadData('/products');
-		}}
-		on:focus={async () => {
-			await preloadData('/products');
-		}}
-		on:click={() => goto('/products')}
-		>Goto prodcuts
-	</button>-->
 </header>
 
 <style>
-	a {
-		color: #e9c46a;
-		/*ff00ff*/
-		text-decoration: none;
-	}
-	.layout-header {
-		background-color: #264653;
-		color: #f4a261;
-		font-size: 30px;
-		text-align: center;
-		padding: 10px;
-	}
-	.login {
-		color: green;
-		float: right;
-		font-size: 25px;
-		background-color: white;
-	}
-	.logout {
-		color: red;
-		margin-left: 15px;
-		float: right;
-		font-size: 25px;
-	}
+
+
+
+
+ /* Estilos para el encabezado */
+ .layout-header {
+        background-color: #7BA9CD;
+        padding: 1.5rem 0;
+        text-align: center;
+    }
+
+    .layout-header a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 1.5rem;
+        font-size: 1.7rem; /* Tamaño de fuente en rem */
+        transition: color 0.3s; /* Transición para el cambio de color */
+    }
+
+    .layout-header a:hover {
+        color: #276aa1; /* Cambio de color al pasar el cursor */
+    }
+
+    .layout-header .logout {
+        background-color: #ff5c5c;
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem; /* Bordes redondeados en rem */
+        padding: 0.8rem 1.5rem; /* Relleno en rem */
+        cursor: pointer;
+        font-size: 1.2rem; /* Tamaño de fuente en rem */
+        transition: background-color 0.3s;
+    }
+
+    .layout-header .logout:hover {
+        background-color: #ff3a3a;
+    }
+
+    .layout-header .login {
+        color: #fff;
+        text-decoration: none;
+        padding: 0.8rem 1.5rem; /* Relleno en rem */
+        border-radius: 0.5rem; /* Bordes redondeados en rem */
+        background-color: #4caf50;
+        font-size: 1.2rem; /* Tamaño de fuente en rem */
+        transition: background-color 0.3s, color 0.3s; /* Transiciones para color y fondo */
+    }
+
+    .layout-header .login:hover {
+        background-color: #43a047;
+        color: #fff; /* Cambio de color al pasar el cursor */
+    }
+
+
+
+
+
+
+
+
 </style>
