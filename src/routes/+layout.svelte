@@ -15,7 +15,6 @@
 	let user = data.user;
 </script>
 
-
 <footer class={$darkmode ? 'darkmode' : ''}>
 	{#if $navigating}
 		<div>Loading...</div>
@@ -34,9 +33,13 @@
 		<slot />
 	{/if}
 </footer>
+
 <style>
 	:global(#darkmode) {
 		background-color: black;
 		color: white;
+	}
+	h3 {
+		margin-left: 2rem;
 	}
 </style>
